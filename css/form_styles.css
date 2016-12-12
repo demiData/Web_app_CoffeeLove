@@ -1,0 +1,38 @@
+.signup {
+    
+	padding: 10px 10px 10px 10px;
+
+	border: 1px solid #e7e7e7;
+	text-align: center;
+	width: 100%;
+    position: relative;
+    left: 12px;
+	height: auto;
+	margin: auto;
+}
+
+.input_group {
+	margin: 0px 20px 20px 20px; 
+}
+
+.input_group input{
+
+	height: 40px;
+	font-size: 20px;
+}
+
+input[type="submit"]{
+	height: 40px;
+	font-size: 20px;
+	font-weight: bold;
+	background-color: #44D0C3;
+	color: white !important;
+}
+
+#errorEmail, #errorFirstname, #errorLastname, #errorPassword{
+	color: red;
+}
+
+#error_Email, #error_Password {
+	color: red;
+}
