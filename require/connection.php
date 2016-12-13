@@ -9,13 +9,11 @@ $dbparts = parse_url($url);
 // $dbName = ltrim($dbparts['path'],'/');
 
 $serverName = "localhost";
-$email = "root";
-$username = "root";
-$fullname = "root";
+$userName = "root";
 $password = "root";
-$dbName = "CoffeeLoveApp";
+$dbName = "Coffee_love";
 
-$connect = new mysqli($serverName, $email, $username, $fullname, $password, $dbName);
+$connect = new mysqli($serverName, $userName, $password, $dbName);
 
 if ($connect -> connect_error) {
 	die("Connection failed: " . $connect -> connect_error);

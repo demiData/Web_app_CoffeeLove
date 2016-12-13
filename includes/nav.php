@@ -16,12 +16,15 @@
         <li><a href="contact.php">Contact</a></li>
         
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Join<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community 
+          <span class="caret"></span></a>
           <ul class="dropdown-menu">
            <li><a href="signup.php">Sign up</a></li>
-           <li><a href="login.php">Log in</a></li>
+           
             <li role="separator" class="divider"></li>
-            <li><a href="#">Log out</a></li>
+            <li><a href="login.php">Log in</a></li>
+            <!-- <li><a href="logout.php">Log out</a></li> -->
+        
           </ul>
         </li>
 

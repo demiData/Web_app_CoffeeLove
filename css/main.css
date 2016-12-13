@@ -14,7 +14,7 @@ html {
 
 body {
 	margin: 0;
-	background-color: #F5F9FF;
+	background-color: #E4E8ED;
 	position: relative;
 	padding-bottom: 6rem;
 	min-height: 100%;
@@ -48,33 +48,19 @@ body {
 }
 
 
-.hero-img img {
-  max-width: 100%;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
-  filter:opacity(78%);
+
+
+
+
+
+.img-hero {
+	width: 40px;
 }
 
-
-
-.logo a{
-	color: #F7FFF9;
+.news {
+	background-color: #EBF3FA;
+	border: solid 2px #D9D9D9;
 }
-
-.logo {
-	position: absolute;
-	top: 30px;
-	left: 30px;
-}
-
-
-
-
-.hero-img {
-	
-}
-
-
 
 .headline h1 { font-family: 'Roboto Slab', serif; padding-top: 25px; color: #F4FCF3;}
 .headline {
@@ -130,24 +116,9 @@ h2 {
     color: #888C87;
 }
 
-th {
-	font-size: 20px;
-	font-family:  'Roboto Slab', serif;
-	border-bottom: 2px solid #BABABA;
-}
 
-td {
-	border-bottom: 1px solid #EDEDED;
-	vertical-align: bottom;
-	height: 30px;
-}
 
-.hot {
-	color: #D23121;
-}
-.cold {
-	color: #0EC9D2;
-}
+
 
 article {
 	padding: 20px;
@@ -155,22 +126,23 @@ article {
 
 }
 
-/*.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-   Set the fixed height of the footer here 
-  height: 60px;
-  background-color: #f5f5f5;
+.active {
+	color: #46D095;
 }
 
-*/
+.img-hero {
+	
+	width: 400px;
+}
 
 
 /*************************
-  log in / sign up tab
+  logout btn
 **************************/
-
+input.logout {
+	list-style-type: none;
+	background-color: #FF4D4C;
+}
 
 
 /*************************
@@ -232,6 +204,7 @@ h3 {
 		position: absolute;
 		top: 100%;
 		width: 400px;
+		
 	}
 
 

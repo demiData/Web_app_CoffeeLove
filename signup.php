@@ -1,4 +1,5 @@
 <?php 
+
 require 'require/functions.php';
 require 'require/connection.php';
 require 'require/error_reporting.php';
@@ -9,11 +10,11 @@ if (isset($_POST['register']) && trim($_POST['register']) != '') {
 		$username = escape_quotes($_POST['username']);
 		$password = escape_quotes(hash("sha512", $_POST['password']));
 
-		if ($_POST['fullname']) {
-			$name = escape_quotes(strip_tags($_POST['fullname']));
+		if ($_POST['name']) {
+			$name = escape_quotes(strip_tags($_POST['name']));
 		}
 
-		$check = get_all_info("SELECT * FROM coffeelovers WHERE username='$username'");
+		$check = get_all_info("SELECT * FROM users WHERE Username='$username'");
 		// Get the first instance of the user and store it into an array
 		$userArray = $check->fetch_assoc();
 
@@ -29,8 +30,8 @@ if (isset($_POST['register']) && trim($_POST['register']) != '') {
 
 		$salt = hash("sha512", rand() . rand() . rand());
 
-		insert_or_update_info("INSERT INTO coffeelovers (email, fullname, username, password, salt) 
-			VALUES ('$email', '$fullname', '$username', '$password', '$salt')");
+		insert_or_update_info("INSERT INTO users (Name, Username, Password, Salt) 
+			VALUES ('$name', '$username', '$password', '$salt')");
 
 		setcookie("c_user", hash("sha512", $username), time() + 24 * 60 * 60, "/");
 		setcookie("c_salt", $salt, time() + 24 * 60 * 60, "/");
@@ -57,35 +58,37 @@ if (isset($_POST['register']) && trim($_POST['register']) != '') {
 			include 'includes/header.php';
 			
 		 ?>
+
 		<div class="container">
-		    <div>
-				<?php 
-					require_once 'require/cookie_login.php';
-					
-					if ($logged == true) {
-					    echo $userArray['username'] . " is logged in";
-					} else {
-					    echo "User not logged in";
-					}
-					?>
-			</div>
+					<div class="page-header">
+      				<div class="active">
+        				<?php 
+									require_once 'require/cookie_login.php';
+									
+									if ($logged == true) {
+									    echo $userArray['username'] . " is logged in";
+									} else {
+									    echo "User not logged in";
+									}
+						 ?>
+	    		 	</div>
+	    		 	</div>
+		    
 		<div class="row signup flex-container">
-		<div>
-				
-			</div>
+		
 		<div class="row">
 			<h3>Welcome to Coffee Love, please join us!</h3>
 		</div>
 		<form action="" method="post" class="form-horizontal">
 			
-			<div class="row form-group input_group">
-				<label for="" class="col-sm-2">Email</label>
+				<div class="row form-group input_group">
+				<label for="name" class="col-sm-2">Name</label>
 				<div class="col-sm-10">
-					<input type="text" name="email" id="email" class="form-control">
-					<span id="errorEmail"></span>
+					<input id="name" type="text" name="name" value="" class="form-control">
+					<span id="errorFirstname"></span>
 				</div>
 			</div>
-
+			
 			<div class="row form-group input_group">
 				<label for="" class="col-sm-2">Username</label>
 				<div class="col-sm-10">
@@ -94,19 +97,6 @@ if (isset($_POST['register']) && trim($_POST['register']) != '') {
 				</div>
 			</div>
 
-			         
-
-			<div class="row form-group input_group">
-				<label for="" class="col-sm-2">Full Name</label>
-				<div class="col-sm-10">
-					<input type="text" name="fullname" id="fullname" class="form-control">
-					<span id="errorFirstname"></span>
-				</div>
-			</div>
-
-			
-			
-
 			<div class="row form-group input_group">
 				<label for="" class="col-sm-2">Password</label>
 				<div class="col-sm-10">
@@ -114,8 +104,11 @@ if (isset($_POST['register']) && trim($_POST['register']) != '') {
 					<span id="errorPassword"></span>
 				</div>
 			</div>
+			
 
-			<div class="row form-group">
+
+			
+			<div class="row form-group ">
 				
 				<div class="col-xs-12">
 					<input type="submit" name="register" id="register" class="form-control">

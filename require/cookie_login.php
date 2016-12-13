@@ -8,7 +8,7 @@ if (isset($_COOKIE['c_user']) && trim($_COOKIE['c_user']) != ''
 	$cuser = escape_quotes($_COOKIE['c_user']);
 	$csalt = escape_quotes($_COOKIE['c_salt']);
 
-	$user = get_all_info("SELECT * FROM coffeelovers WHERE salt='$csalt'");
+	$user = get_all_info("SELECT * FROM users WHERE salt='$csalt'");
 
 	$userArray = $user->fetch_assoc();
     if (count($userArray) > 0) {
